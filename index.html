@@ -16,104 +16,78 @@
   <div class="timestamp" id="timestamp"></div>
   <div class="tickets" id="tickets"></div>
 
-  <script>
-    // Mapping of SKU codes to event names
-    const map = {
-      "RZIL01": "Ren Zotto Sun 08/31 1:45PM",
-      "RZIL02": "Ren Zotto Sun 08/31 3:15PM",
-      "GGAV01": "Gale Galleon Sun 08/31 5:00PM",
-      "ZNAV01": "Zander Netherbrand Sun 08/31 5:00PM",
-      "RGAV01": "Rosco Graves Sun 08/31 5:00PM",
-      "CFAV01": "Cassian Floros Sun 08/31 5:00PM",
-      "LLAV01": "Lucien Lunaris Sun 08/31 5:00PM",
-      "PGOB01": "Petra Gurin Sun 08/31 6:30PM",
-      "SQ8701527": "Petra Gurin Sun 08/31 7:35PM",
-      "NXRV01": "Nix Voltare Sat 08/30 4:45PM",
-      "MCRV01": "Malim Cendari Sat 08/30 4:45PM",
-      "RBRV01": "Ryzar Blazenfang Sat 08/30 4:45PM",
-      "AZRV01": "Altus Zendoji Sat 08/30 4:45PM",
-      "NURV01": "Nayuta Umbrage Sat 08/30 4:45PM",
-      "UNSAT01": "Unnämed Meet&Grip Sat 08/30 9:00PM"
-    };
-
-    // Catalog of crumb codes and item IDs
-    const catalog = {
-      "BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw": [
-        "686edf3a7bd5232891d938eb",
-        "686ef9f7f08d7b61302dcb1d",
-        "686efa772f6026214416a9d2",
-        "686efb6c0969407cb651ec43",
-        "686efeae27a54e75fd809e48",
-        "6792c3c73840ee70ff30120d",
-        "6792c2afd71db53c7a5709d4",
-        "6792c599ee752800eeac8ac4",
-        "6792c472a491d70de23f7a42",
-        "678859129ba2a11328064c39"
-      ],
-      "BUyBl7D21w26NzljYjVlZjFmYjdlMTVhMjUyZWJjZDA2MTMxYTI4": [
-        "68758da34bbb5f4b29f31eb8"
-      ],
-      "BdPHFNu3KUvaZDhjOGQ1NGNmNTM5NjEwNDYxZjNkOGU0NjRkMGEy": [
-        "66bbe90091c1d110415bee5b",
-        "66e4c9b07e763c11bb526cd3"
-      ]
-    };
-
-    // Helper to format current date/time as MM/DD/YYYY HH:MM:SS AM/PM PDT
-    function formatTimestamp() {
-      const now = new Date();
-      const options = { month: 'numeric', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/Los_Angeles' };
-      return now.toLocaleString('en-US', options) + ' PDT';
-    }
-
-    // Main function to fetch and display ticket data
-    async function fetchTickets() {
-      document.getElementById('timestamp').textContent = 'As of ' + formatTimestamp() + ':';
-      const results = {};
-
-      for (const [crumb, itemIds] of Object.entries(catalog)) {
-        for (const itemId of itemIds) {
-          try {
-            const url = `https://animeimpulse.com/api/commerce/inventory/stock/?crumb=${crumb}&itemId=${itemId}`;
-            const response = await fetch(url);
-            if (response.ok) {
-              const data = await response.json();
-              if (data.results) {
-                data.results.forEach(item => {
-                  results[item.sku] = item.qtyInStock;
-                });
-              }
-            } else {
-              console.warn(`Request failed for ${itemId}: ${response.status}`);
-            }
-          } catch (e) {
-            console.error(`Error for ${itemId}:`, e);
-          }
-          // Wait 2 seconds between requests to avoid rate limiting
-          await new Promise(res => setTimeout(res, 2000));
-        }
-      }
-
-      // Display results
-      const ticketsDiv = document.getElementById('tickets');
-      ticketsDiv.innerHTML = '';
-      let anyTickets = false;
-      for (const [sku, qty] of Object.entries(results)) {
-        if (qty > 0 && map[sku]) {
-          anyTickets = true;
-          const row = document.createElement('div');
-          row.className = 'ticket-row';
-          row.textContent = `${map[sku]}: ${qty}`;
-          ticketsDiv.appendChild(row);
-        }
-      }
-      if (!anyTickets) {
-        ticketsDiv.textContent = 'No tickets remaining for any listed event.';
-      }
-    }
-
-    // Run on page load
-    fetchTickets();
-  </script>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Stock</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nix Voltare</td>
+      <td>Sat 08/30</td>
+      <td>4:45PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686edf3a7bd5232891d938eb">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Malim Cendari</td>
+      <td>Sat 08/30</td>
+      <td>4:45PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686ef9f7f08d7b61302dcb1d">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Ryzar Blazenfang</td>
+      <td>Sat 08/30</td>
+      <td>4:45PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686efa772f6026214416a9d2">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Altus Zendoji</td>
+      <td>Sat 08/30</td>
+      <td>4:45PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686efb6c0969407cb651ec43">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Unnämed Meet&amp;Grip</td>
+      <td>Sat 08/30</td>
+      <td>9:00PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BUyBl7D21w26NzljYjVlZjFmYjdlMTVhMjUyZWJjZDA2MTMxYTI4&itemId=68758da34bbb5f4b29f31eb8">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Ren Zotto</td>
+      <td>Sun 08/31</td>
+      <td>3:15PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BdPHFNu3KUvaZDhjOGQ1NGNmNTM5NjEwNDYxZjNkOGU0NjRkMGEy&itemId=66bbe90091c1d110415bee5b">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Gale Galleon</td>
+      <td>Sun 08/31</td>
+      <td>5:00PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c3c73840ee70ff30120d">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Rosco Graves</td>
+      <td>Sun 08/31</td>
+      <td>5:00PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c599ee752800eeac8ac4">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Cassian Floros</td>
+      <td>Sun 08/31</td>
+      <td>5:00PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c472a491d70de23f7a42">Stock count</a></td>
+    </tr>
+    <tr>
+      <td>Petra Gurin</td>
+      <td>Sun 08/31</td>
+      <td>7:35PM</td>
+      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BdPHFNu3KUvaZDhjOGQ1NGNmNTM5NjEwNDYxZjNkOGU0NjRkMGEy&itemId=66e4c9b07e763c11bb526cd3">Stock count</a></td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
