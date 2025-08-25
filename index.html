@@ -6,87 +6,84 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
     h1 { color: #d35400; }
-    .timestamp { color: #888; margin-bottom: 1em; }
     .tickets { background: #fff; border-radius: 8px; padding: 1em; box-shadow: 0 2px 8px #eee; }
-    .ticket-row { margin-bottom: 0.5em; }
   </style>
 </head>
 <body>
   <h1>Anime Impulse Orange County Tickets Remaining</h1>
-  <div class="timestamp" id="timestamp"></div>
-  <div class="tickets" id="tickets"></div>
-
-<table border="1">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Stock</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Nix Voltare</td>
-      <td>Sat 08/30</td>
-      <td>4:45PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686edf3a7bd5232891d938eb">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Malim Cendari</td>
-      <td>Sat 08/30</td>
-      <td>4:45PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686ef9f7f08d7b61302dcb1d">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Ryzar Blazenfang</td>
-      <td>Sat 08/30</td>
-      <td>4:45PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686efa772f6026214416a9d2">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Altus Zendoji</td>
-      <td>Sat 08/30</td>
-      <td>4:45PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686efb6c0969407cb651ec43">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Unnämed Meet&amp;Grip</td>
-      <td>Sat 08/30</td>
-      <td>9:00PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BUyBl7D21w26NzljYjVlZjFmYjdlMTVhMjUyZWJjZDA2MTMxYTI4&itemId=68758da34bbb5f4b29f31eb8">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Ren Zotto</td>
-      <td>Sun 08/31</td>
-      <td>3:15PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BdPHFNu3KUvaZDhjOGQ1NGNmNTM5NjEwNDYxZjNkOGU0NjRkMGEy&itemId=66bbe90091c1d110415bee5b">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Gale Galleon</td>
-      <td>Sun 08/31</td>
-      <td>5:00PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c3c73840ee70ff30120d">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Rosco Graves</td>
-      <td>Sun 08/31</td>
-      <td>5:00PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c599ee752800eeac8ac4">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Cassian Floros</td>
-      <td>Sun 08/31</td>
-      <td>5:00PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c472a491d70de23f7a42">Stock count</a></td>
-    </tr>
-    <tr>
-      <td>Petra Gurin</td>
-      <td>Sun 08/31</td>
-      <td>7:35PM</td>
-      <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BdPHFNu3KUvaZDhjOGQ1NGNmNTM5NjEwNDYxZjNkOGU0NjRkMGEy&itemId=66e4c9b07e763c11bb526cd3">Stock count</a></td>
-    </tr>
-  </tbody>
-</table>
+  <div class="tickets" id="tickets">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nix Voltare</td>
+          <td>Sat 08/30</td>
+          <td>4:45PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686edf3a7bd5232891d938eb">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Malim Cendari</td>
+          <td>Sat 08/30</td>
+          <td>4:45PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686ef9f7f08d7b61302dcb1d">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Ryzar Blazenfang</td>
+          <td>Sat 08/30</td>
+          <td>4:45PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686efa772f6026214416a9d2">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Altus Zendoji</td>
+          <td>Sat 08/30</td>
+          <td>4:45PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=686efb6c0969407cb651ec43">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Unnämed</td>
+          <td>Sat 08/30</td>
+          <td>9:00PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BUyBl7D21w26NzljYjVlZjFmYjdlMTVhMjUyZWJjZDA2MTMxYTI4&itemId=68758da34bbb5f4b29f31eb8">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Ren Zotto</td>
+          <td>Sun 08/31</td>
+          <td>3:15PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BdPHFNu3KUvaZDhjOGQ1NGNmNTM5NjEwNDYxZjNkOGU0NjRkMGEy&itemId=66bbe90091c1d110415bee5b">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Gale Galleon</td>
+          <td>Sun 08/31</td>
+          <td>5:00PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c3c73840ee70ff30120d">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Rosco Graves</td>
+          <td>Sun 08/31</td>
+          <td>5:00PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c599ee752800eeac8ac4">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Cassian Floros</td>
+          <td>Sun 08/31</td>
+          <td>5:00PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BZOgOET0D1jSM2Y2NTI3NjcxMzUzZTVjZmY1ZDhkMDZmY2ZiOTgw&itemId=6792c472a491d70de23f7a42">Stock count</a></td>
+        </tr>
+        <tr>
+          <td>Petra Gurin</td>
+          <td>Sun 08/31</td>
+          <td>7:35PM</td>
+          <td><a href="https://animeimpulse.com/api/commerce/inventory/stock/?crumb=BdPHFNu3KUvaZDhjOGQ1NGNmNTM5NjEwNDYxZjNkOGU0NjRkMGEy&itemId=66e4c9b07e763c11bb526cd3">Stock count</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
