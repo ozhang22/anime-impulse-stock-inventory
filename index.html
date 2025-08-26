@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
-  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css"/>
+  <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
   <title>Anime Impulse Orange County Tickets Remaining</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
@@ -13,8 +13,7 @@
 </head>
 <body>
   <h1>Anime Impulse Orange County Tickets Remaining</h1>
-  <div class="tickets" id="tickets">
-    <py-script>  
+      <script type="mpy" terminal>  
 from pip._vendor import requests
 from datetime import datetime
 from time import sleep
@@ -107,7 +106,8 @@ def aioc():
     print("```")
 
 aioc()
-    </py-script>
+    </script>
+  <div class="tickets" id="tickets">
     <!--
     <table border="1">
       <thead>
