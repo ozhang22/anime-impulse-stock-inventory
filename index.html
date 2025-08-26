@@ -64,7 +64,7 @@ def aioc():
         ],
     }
 
-    def make_http_request(crumb, itemId):
+    async def make_http_request(crumb, itemId):
         retries = 0
         while (retries < 3):
             try:
@@ -72,7 +72,7 @@ def aioc():
                 response = await pyfetch(url=link, method="GET")
 
                 if response.status_code == 200:
-                    response_results = response.json()['results']
+                    response_results = (await response.json())['results']
                     for item in response_results:
                         results[item['sku']] = item['qtyInStock']
                         links[item['sku']] = link
@@ -94,7 +94,7 @@ def aioc():
     links = {}
     for crumb, itemIds in catalog.items():
         for itemId in itemIds:
-            make_http_request(crumb, itemId)
+            await make_http_request(crumb, itemId)
             sleep(2)
 
     print("```")
