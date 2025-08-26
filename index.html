@@ -20,7 +20,7 @@ from datetime import datetime
 from time import sleep
 
 # AIOC
-def aioc():
+async def aioc():
     map = {
         "RZIL01":   "Ren Zotto            Sun 08/31  1:45PM",
         "RZIL02":   "Ren Zotto            Sun 08/31  3:15PM",
@@ -106,7 +106,7 @@ def aioc():
             
     print("```")
 
-aioc()
+asyncio.run(aioc())
     </script>
   <div class="tickets" id="tickets">
     <!--
