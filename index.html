@@ -13,8 +13,9 @@
 </head>
 <body>
   <h1>Anime Impulse Orange County Tickets Remaining</h1>
-      <script type="mpy" terminal>  
-from pip._vendor import requests
+      <script type="py" terminal>  
+from pyodide.http import pyfetch
+import asyncio
 from datetime import datetime
 from time import sleep
 
@@ -68,7 +69,7 @@ def aioc():
         while (retries < 3):
             try:
                 link = f"https://animeimpulse.com/api/commerce/inventory/stock/?crumb={crumb}&itemId={itemId}"
-                response = requests.get(link)
+                response = await pyfetch(url=link, method="GET")
 
                 if response.status_code == 200:
                     response_results = response.json()['results']
